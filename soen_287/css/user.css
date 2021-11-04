@@ -1,0 +1,33 @@
+.user h1 {
+	text-align: center;
+	color: #0a523b;
+}
+
+.user .form {
+	color: black;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #eee;
+	padding: 20px;
+	border: 2px solid #0a523b;
+}
+
+.user input {
+	width: 80%;
+	padding: 12px 20px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.user input:focused {
+	border-color: #0a523b;
+}
+
+.user button {
+	color: white;
+	background: #0a523b;
+	border-radius: 5px;
+	padding: 10px 20px;
+	display: inline-block;
+	cursor: pointer;
+}
