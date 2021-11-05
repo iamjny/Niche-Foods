@@ -18,10 +18,9 @@
     />
 
     <title>Page4 Cart</title>
-    
-    <style>
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 
       * {
         box-sizing: border-box;
@@ -30,7 +29,6 @@
         text-decoration: none;
         font-family: "Open Sans";
         text-decoration: none;
-
       }
 
       #navbar {
@@ -41,29 +39,27 @@
         align-items: center;
       }
 
-      #navbar a
-      {
+      #navbar a {
         color: black;
       }
 
-      #nav_select,
-      #user_exp {
-        width: 20%;
-      }
-      #nav_select a {
-        margin-right: 20px;
+      #topnav_desktop,
+      #topnav_mobile {
+        padding-left: 20px;
       }
 
-      #nav_select a:last-child {
-        padding: 0px;
+      #topnav_mobile {
+        display: none;
       }
 
-      #nav_select a:first-child {
-        padding-left: 30px;
+      #topnav_desktop a {
+        padding-right: 10px;
+        flex-direction: row;
       }
 
       #user_exp {
         text-align: end;
+        width: 20%;
       }
 
       #user_exp a {
@@ -71,11 +67,11 @@
       }
 
       #user_exp a:last-child {
-        padding-right: 30px;
+        padding-right: 20px;
       }
 
       #logo {
-          padding-top: 15px;
+        padding-top: 15px;
         font-size: 2em;
         padding-bottom: 20px;
       }
@@ -84,8 +80,7 @@
         font-weight: 600;
       }
 
-      #logo .fa
-      {
+      #logo .fa {
         padding-right: 5px;
       }
 
@@ -93,19 +88,19 @@
         padding: 20px;
         text-align: center;
         background-color: #0a523b;
-        color:#eee;
+        color: #eee;
       }
 
       .content .banner {
-  background-image: url('img/cart_bann.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 300px;
-}
+        background-image: url("img/cart_bann.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 300px;
+      }
 
-/* .main {
-  background-image: url('img/background.png');
-} */
+      /* .main {
+        background-image: url('img/background.png');
+      } */
 
       #shopping_cart {
         max-width: 1200px;
@@ -120,7 +115,6 @@
 
       .cart {
         display: flex;
-        
       }
 
       .items {
@@ -194,7 +188,6 @@
         margin-left: 20px;
         padding: 20px;
         height: 300px;
-    
       }
 
       .cart_payment p {
@@ -219,31 +212,77 @@
         transform: scale(1.01);
       }
 
+      #menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      #menu.show {
+        display: flex;
+        flex-direction: column;
+        background-color: #8d9b8e;
+        width: 100%;
+      }
+
+      #menu.show a
+      {
+          color: #ffffff;
+          padding: 10px 10px 10px 10px;
+          text-align: center;
+      }
+
+      
+      #menu.show a:hover
+      {
+          background-color: #6d796e;
+      }
+
+      #menu_container {
+        position: relative;
+      }
+
       #emptyText{
         visibility: hidden;
 
       }
 
       @media screen and (max-width: 700px) {
-        .remove_fromcart {
+        #topnav_desktop {
           display: none;
+        }
+
+        #topnav_mobile {
+          display: block;
+        }
+        .remove_fromcart {
+          display: inline;
         }
         .cart_product {
           height: 150px;
         }
         .cart_product > img {
-          height: 150px;
-          width: 200px;
+          height: 120px;
+          width: 150px;
+          align-items: center;
         }
         .item_name,
         .item_price {
           margin-bottom: 10px;
         }
         .items {
-			width:auto;
-		}
+          width: auto;
+        }
+        #user_exp a:last-child {
+          padding-right: 20px;
+        }
+
+        .content .banner {
+          background-size: 100%;
+          height: 140px;
+        }
       }
-      @media screen and (max-width: 900px) {
+      @media screen and (max-width: 950px) {
         .cart {
           flex-direction: column;
         }
@@ -252,8 +291,17 @@
           width: auto;
         }
         .items {
-			width:auto;
-		}
+          width: auto;
+        }
+
+        #nav_select a {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .content .banner > img {
+          height: 300px;
+        }
       }
       @media screen and (max-width: 1220px) {
         .shopping_cart {
@@ -261,154 +309,182 @@
         }
       }
 
-      .item_name
-      {
-          display: flex;
-          justify-content: space-between;
+      .item_name {
+        display: flex;
+        justify-content: space-between;
       }
     </style>
   </head>
   <body>
-    
     <div id="navbar">
-        <div id="nav_select">
-          <a href="#">Aisles</a>
-          <a href="#">Blog</a>
-          <a href="#">Contact</a>
-        </div>
-        <div id="logo">
-          <a href="#"
-            ><i class="fa fa-spoon" aria-hidden="true"></i>Niche Foods</a
-          >
-        </div>
-        <div id="user_exp">
-          <a href="#">
-            <i class="fas fa-shopping-basket"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-user-circle" aria-hidden="true"></i>
-          </a>
-        </div>
+      <div id="topnav_desktop">
+        <a href="#">Aisles</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
       </div>
+      <div id="topnav_mobile">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"
+          ><i class="fa fa-bars"></i
+        ></a>
+      </div>
+      <div id="logo">
+        <a href="#"
+          ><i class="fa fa-spoon" aria-hidden="true"></i>Niche Foods</a
+        >
+      </div>
+      <div id="user_exp">
+        <a href="#">
+          <i class="fas fa-shopping-basket"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div id="menu_container">
+      <div id="menu">
+        <a href="#">Aisles</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
 
     <div class="content">
-        <div class="banner">
-        </div>
-        <div class="title">
-          <h2>
-            <i class="fa fa-shopping-basket" aria-hidden="true"></i> Your Cart
-          </h2>
-        </div>
-    </div>
-     
-    <div class="main">
-
-    <div id="shopping_cart">
-      <div class="cart">
-        <div class="items">
-          <div class="cart_product" price = 3.99 name="kombucha">
-            <img src="img/kombucha.jpg" alt="synergy kombucha" />
-            <div class="cart_item_information">
-              <div class="item_name">
-                  <h3>SYNERGY Kombucha</h3>
-                  <h3>C$3.99</h3>
-              </div>
-              <h4 class="item_price">C$3.99</h4>
-              <p class="item_quantity">
-                QTY:
-                <button class="decrease_qnt">-</button>
-                <input class = quantity  value="1" />
-                <button class="increase_qnt">+</button>
-              </p>
-
-              <div>
-                <button class="remove_fromcart">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="cart_product" price = 2.99 name="croissant">
-            <img src="img/croissants_cart.jpg" alt="croissant" />
-            <div class="cart_item_information">
-                <div class="item_name">
-                    <h3>Butter Croissant</h3>
-                    <h3>C$2.99</h3>
-                </div>
-              <h4 class="item_price">C$2.99</h4>
-              <p class="item_quantity">
-                QTY:
-                <button class="decrease_qnt">-</button>
-                <input class = quantity value="1" />
-                <button class="increase_qnt">+</button>
-              </p>
-
-              <div>
-                <button class="remove_fromcart">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="cart_product" price = 5.99 name="strawberry">
-            <img src="img/strawberries_cart.jpg" alt="strawberries" />
-            <div class="cart_item_information">
-                <div class="item_name">
-                    <h3>Strawberries</h3>
-                    <h3>C$5.99</h3>
-                </div>
-              <h4 class="item_price">C$5.99</h4>
-              <p class="item_quantity">
-                QTY:
-                <button class="decrease_qnt">-</button>
-                <input class = quantity value="1" />
-                <button class="increase_qnt">+</button>
-              </p>
-
-              <div>
-                <button class="remove_fromcart">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cart_payment">
-          <p>
-            <span>Number of Items:</span>
-            <span class = "itemNum">3</span>
-          </p>
-          <p>
-            <span>Subtotal</span>
-            <span class="raw">C$12.97</span>
-          </p>
-          <p>
-            <span>QST</span>
-            <span class="qst">$</span>
-          </p>
-          <p>
-            <span>GST</span>
-            <span class="gst">$</span>
-          </p>
-          <hr>
-          <p>
-            <span>Total</span>
-            <span class="final">$</span>
-          </p>
-          <div>
-            <a href="#checkout">Proceed to Checkout</a>
-            <a href="#aisles"><i class="fas fa-arrow-circle-left" style="padding-right: 5px;"></i>Continue Shopping</a>
-          </div>
-        </div>
-        <p id="emptyText">Cart empty!</p>
+      <div class="banner"></div>
+      <div class="title">
+        <h2>
+          <i class="fa fa-shopping-basket" aria-hidden="true"></i> Your Cart
+        </h2>
       </div>
     </div>
 
-</div>
+    <div class="main">
+      <div id="shopping_cart">
+        <div class="cart">
+          <div class="items">
+            <div class="cart_product" price="3.99" name="kombucha">
+              <img src="img/kombucha.jpg" alt="synergy kombucha" />
+              <div class="cart_item_information">
+                <div class="item_name">
+                  <h3>SYNERGY Kombucha</h3>
+                  <h3>C$3.99</h3>
+                </div>
+                <h4 class="item_price">C$3.99</h4>
+                <p class="item_quantity">
+                  QTY:
+                  <button class="decrease_qnt">-</button>
+                  <input class="quantity" value="1" />
+                  <button class="increase_qnt">+</button>
+                </p>
 
+                <div>
+                  <button class="remove_fromcart">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cart_product" price="2.99" name="croissant">
+              <img src="img/croissants_cart.jpg" alt="croissant" />
+              <div class="cart_item_information">
+                <div class="item_name">
+                  <h3>Butter Croissant</h3>
+                  <h3>C$2.99</h3>
+                </div>
+                <h4 class="item_price">C$2.99</h4>
+                <p class="item_quantity">
+                  QTY:
+                  <button class="decrease_qnt">-</button>
+                  <input class="quantity" value="1" />
+                  <button class="increase_qnt">+</button>
+                </p>
+
+                <div>
+                  <button class="remove_fromcart">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cart_product" price="5.99" name="strawberry">
+              <img src="img/strawberries_cart.jpg" alt="strawberries" />
+              <div class="cart_item_information">
+                <div class="item_name">
+                  <h3>Strawberries</h3>
+                  <h3>C$5.99</h3>
+                </div>
+                <h4 class="item_price">C$5.99</h4>
+                <p class="item_quantity">
+                  QTY:
+                  <button class="decrease_qnt">-</button>
+                  <input class="quantity" value="1" />
+                  <button class="increase_qnt">+</button>
+                </p>
+
+                <div>
+                  <button class="remove_fromcart">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart_payment">
+            <p>
+              <span>Number of Items:</span>
+              <span class="itemNum">3</span>
+            </p>
+            <p>
+              <span>Subtotal</span>
+              <span class="raw">C$12.97</span>
+            </p>
+            <p>
+              <span>QST</span>
+              <span class="qst">$</span>
+            </p>
+            <p>
+              <span>GST</span>
+              <span class="gst">$</span>
+            </p>
+            <hr />
+            <p>
+              <span>Total</span>
+              <span class="final">$</span>
+            </p>
+            <div>
+              <a href="#checkout">Proceed to Checkout</a>
+              <a href="#aisles"
+                ><i
+                  class="fas fa-arrow-circle-left"
+                  style="padding-right: 5px"
+                ></i
+                >Continue Shopping</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <p id="emptyText">Cart is currently empty!</p>
+    </div>
+      </div>
+    </div>
   </body>
-  <script type="text/javascript" src="dynamics.js">	</script>
+  <script type="text/javascript" src="dynamics.js"></script>
+
+  <script type="text/javascript">
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function myFunction() {
+      var menu = document.getElementById("menu");
+      console.log("hi");
+      if (menu.className === "show") {
+        menu.classList.remove("show");
+      } else {
+        menu.className = "show";
+      }
+    }
+  </script>
+
 </html>
