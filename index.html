@@ -316,6 +316,15 @@
         display: flex;
         justify-content: space-between;
       }
+      
+      /* Burger Animation at OPEN */
+
+      .icon.open i
+      {
+        color: white;
+        transform: scale(1.30);
+      }
+      
     </style>
   </head>
   <body>
@@ -489,5 +498,23 @@
       }
     }
   </script>
+
+  <script>
+      const burger = document.querySelector('.icon');
+      let menuOpen = false;
+      burger.addEventListener('click', ()=> 
+      {
+        if(!menuOpen)
+        {
+          burger.classList.add('open');
+          menuOpen = true;
+        }else
+        {
+          burger.classList.remove('open');
+          menuOpen = false;
+        }
+
+      });
+    </script>
 
 </html>
