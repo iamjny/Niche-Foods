@@ -6,7 +6,7 @@ var extendD = document.getElementById("descriptionButton");
 extendD.addEventListener("click",extend);
 extendD.addEventListener("dblclick",distend);
 console.log("test");
-//document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
+document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
 const basePrice=parseFloat(document.getElementById("price").innerHTML);
 function updatePrice(){
     var price=document.getElementById("price").innerHTML;
