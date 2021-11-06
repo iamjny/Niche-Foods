@@ -7,7 +7,23 @@
 	<link rel="stylesheet" type="text/css" href="../../../../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../../../../css/product.css">
     <title>Product Page</title>
-
+	
+	<script>
+		function show() {
+			var descriptionBtn = document.getElementById('descriptionButton');
+			var moreText = document.getElementById('more');
+			var displaying = moreText.style.display;
+			var buttonText = document.getElementById("descriptionButton");
+				if (moreText.style.display == 'none') {
+					moreText.style.display = 'inline';
+					buttonText.innerHTML = "Less Information";
+				}
+				else {
+					  moreText.style.display = 'none';
+					  buttonText.innerHTML = 'More Inforamtion';
+					}		
+		}
+	</script>
 </head>
 
 <body>
@@ -46,11 +62,16 @@
 		   <p> 100g <br> <br>
 		   Price: 0.60$</p>
 		   <div class="counter">
-					<button style="width:15px;"type= "submit">-</button>
-					<button style="width:25px;" type = "submit"> 1 </button>
-					<button style="width:15px;" type = "submit"> + </button>
+					<button id="subQ" style="width:15px;"type= "submit">-</button>
+					<button id="Quantity" style="width:25px;" type = "submit"> 1 </button>
+					<button id="addQ" style="width:15px;" type = "submit"> + </button>
 			</div> <br>
-		   <button class = "descriptionButton" id = "descriptionButton" type = "button">More Information </button> <br>
+			
+		    <button class = "descriptionButton" onclick = "show()" id = "descriptionButton" type = "button">More Information </button> <br>
+		   <div style = "display: none;" id = "more"> 
+		   <p>Imported from Turkey</p>
+		   </div>
+		   
 		   <button class="cartbtn"> Add to cart</button><br>
 		  </div>
 		  </div>
@@ -71,6 +92,30 @@
       </div>
 </body>
 
+<script>
+	var addQ = document.getElementById("addQ");
+	addQ.addEventListener("click",addQuantity);
+	var subQ = document.getElementById("subQ");
+	subQ.addEventListener("click",subQuantity);
+	console.log("test");
+	function addQuantity(){
+		var qt = document.getElementById("Quantity").innerHTML;
+		var SystemQ = parseInt(qt)+1;
+		localStorage.setItem("testKey",SystemQ);
+		document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
+	}
+	function subQuantity(){
+		var qt = document.getElementById("Quantity").innerHTML;
+		if(qt>0){
+			var SystemQ = parseInt(qt)-1;
+			localStorage.setItem("testKey",SystemQ);
+			document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
+			updatePrice();
+		}
+	}
+	console.log(localStorage.getItem("testKey"));
+</script>
+
 <!-- done by valentyna-->
 <footer>
   <div class="text">
@@ -83,3 +128,4 @@
 </footer>
 
 </html>
+
