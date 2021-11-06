@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Page4 Cart</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-family: "Open Sans";
+        text-decoration: none;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        background-color: #c5d9c6;
+        align-items: center;
+      }
+
+      #navbar a {
+        color: black;
+      }
+
+      #topnav_desktop,
+      #topnav_mobile {
+        padding-left: 20px;
+      }
+
+      #topnav_mobile {
+        display: none;
+      }
+
+      #topnav_desktop a {
+        padding-right: 10px;
+        flex-direction: row;
+      }
+
+      #user_exp {
+        text-align: end;
+        width: 20%;
+      }
+
+      #user_exp a {
+        margin-left: 15px;
+      }
+
+      #user_exp a:last-child {
+        padding-right: 20px;
+      }
+
+      #logo {
+        padding-top: 15px;
+        font-size: 2em;
+        padding-bottom: 20px;
+      }
+
+      #logo a {
+        font-weight: 600;
+      }
+
+      #logo .fa {
+        padding-right: 5px;
+      }
+
+      .title {
+        padding: 20px;
+        text-align: center;
+        background-color: #0a523b;
+        color: #eee;
+      }
+
+      .content .banner {
+        background-image: url("img/cart_bann.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 300px;
+      }
+
+      .main {
+        background-image: url('img/background.png');
+      }
+
+      #shopping_cart {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px;
+        justify-content: center;
+      }
+
+      #shopping_cart > h1 {
+        padding: 20px 0;
+      }
+
+      .cart {
+        display: flex;
+      }
+
+      .items {
+        width: 65%;
+      }
+
+      .cart_product {
+        display: flex;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin-bottom: 10px;
+        background-color: #d0e4d893;
+      }
+
+      .cart_product:hover {
+        border: none;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 2);
+        transform: scale(1.01);
+      }
+
+      .cart_product > img {
+        width: 150px;
+        margin: 10px;
+        /* object-fit: cover; */
+      }
+
+      /* .cart_product > img:hover
+        {
+            transform: scale(1.04);
+        } */
+
+      .cart_item_information {
+        padding: 20px;
+        width: 100%;
+        position: relative;
+      }
+
+      .item_name,
+      .item_price {
+        margin-bottom: 20px;
+      }
+
+      .remove_fromcart {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        padding: 5px 10px;
+        color: darkgreen;
+        cursor: pointer;
+      }
+
+      .item_quantity > input {
+        width: 30px;
+        padding: 5px;
+        text-align: center;
+      }
+
+      .decrease_qnt,
+      .increase_qnt {
+        padding: 5px 10px;
+        width: 30px;
+        height: 30px;
+        color: darkgreen;
+        cursor: pointer;
+      }
+
+      .cart_payment {
+        border: 1px solid lightgray;
+        width: 30%;
+        margin-left: 20px;
+        padding: 20px;
+        height: 300px;
+      }
+
+      .cart_payment p {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .cart_payment a {
+        display: block;
+        padding: 5px;
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 7px;
+        background-color: darkgreen;
+        color: white;
+        text-align: center;
+        border-radius: 2px;
+      }
+
+      .cart_payment a:hover {
+        transform: scale(1.01);
+      }
+
+      #menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      #menu.show {
+        display: flex;
+        flex-direction: column;
+        background-color: #8d9b8e;
+        width: 100%;
+      }
+
+      #menu.show a
+      {
+          color: #ffffff;
+          padding: 10px 10px 10px 10px;
+          text-align: center;
+      }
+
+      
+      #menu.show a:hover
+      {
+          background-color: #6d796e;
+      }
+
+      #menu_container {
+        position: relative;
+      }
+
+      #emptyText{
+        visibility: hidden;
+        text-align: center;
+        margin-right: 400px;
+        margin-top: -200px;
+
+      }
+
+      @media screen and (max-width: 700px) {
+        #topnav_desktop {
+          display: none;
+        }
+
+        #topnav_mobile {
+          display: block;
+        }
+        .remove_fromcart {
+          display: inline;
+        }
+        .cart_product {
+          height: 150px;
+        }
+        .cart_product > img {
+          height: 120px;
+          width: 150px;
+          align-items: center;
+        }
+        .item_name,
+        .item_price {
+          margin-bottom: 10px;
+        }
+        .items {
+          width: auto;
+        }
+        #user_exp a:last-child {
+          padding-right: 20px;
+        }
+
+        .content .banner {
+          background-size: 100%;
+          height: 140px;
+        }
+      }
+      @media screen and (max-width: 950px) {
+        .cart {
+          flex-direction: column;
+        }
+        .cart_payment {
+          margin-left: 0;
+          width: auto;
+        }
+        .items {
+          width: auto;
+        }
+
+        #nav_select a {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .content .banner > img {
+          height: 300px;
+        }
+      }
+      @media screen and (max-width: 1220px) {
+        .shopping_cart {
+          max-width: 95%;
+        }
+      }
+
+      .item_name {
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      /* Burger Animation at OPEN */
+
+      .icon.open i
+      {
+        color: white;
+        transform: scale(1.30);
+      }
+      
+    </style>
+  </head>
+  <body>
+    
+    <div id="navbar">
+        <div id="nav_select">
+          <a href="index1.html">Aisles</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div id="logo">
+          <a href="#"
+            ><i class="fa fa-spoon" aria-hidden="true"></i>Niche Foods</a
+          >
+        </div>
+        <div id="user_exp">
+          <a href="#">
+            <i class="fas fa-shopping-basket"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+    <div class="content">
+        <div class="banner">
+        </div>
+        <div class="title">
+          <h2>
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i> Your Cart
+          </h2>
+        </div>
+    </div>
+     
+    <div class="main">
+
+    <div id="shopping_cart">
+      <div class="cart">
+        <div class="items">
+          <div class="cart_product" price = 3.99 name="kombucha">
+            <img src="img/kombucha.jpg" alt="synergy kombucha" />
+            <div class="cart_item_information">
+              <div class="item_name">
+                  <h3>SYNERGY Kombucha</h3>
+                  <h3>C$3.99</h3>
+              </div>
+              <h4 class="item_price">C$3.99</h4>
+              <p class="item_quantity">
+                QTY:
+                <button class="decrease_qnt">-</button>
+                <input class = quantity  value="1" />
+                <button class="increase_qnt">+</button>
+              </p>
+
+              <div>
+                <button class="remove_fromcart">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart_product" price = 2.99 name="croissant">
+            <img src="img/croissants_cart.jpg" alt="croissant" />
+            <div class="cart_item_information">
+                <div class="item_name">
+                    <h3>Butter Croissant</h3>
+                    <h3>C$2.99</h3>
+                </div>
+              <h4 class="item_price">C$2.99</h4>
+              <p class="item_quantity">
+                QTY:
+                <button class="decrease_qnt">-</button>
+                <input class = quantity value="1" />
+                <button class="increase_qnt">+</button>
+              </p>
+
+              <div>
+                <button class="remove_fromcart">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart_product" price = 5.99 name="strawberry">
+            <img src="img/strawberries_cart.jpg" alt="strawberries" />
+            <div class="cart_item_information">
+                <div class="item_name">
+                    <h3>Strawberries</h3>
+                    <h3>C$5.99</h3>
+                </div>
+              <h4 class="item_price">C$5.99</h4>
+              <p class="item_quantity">
+                QTY:
+                <button class="decrease_qnt">-</button>
+                <input class = quantity value="1" />
+                <button class="increase_qnt">+</button>
+              </p>
+
+              <div>
+                <button class="remove_fromcart">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart_payment">
+          <p>
+            <span>Number of Items:</span>
+            <span class = "itemNum">3</span>
+          </p>
+          <p>
+            <span>Subtotal</span>
+            <span class="raw">C$12.97</span>
+          </p>
+          <p>
+            <span>QST</span>
+            <span class="qst">$</span>
+          </p>
+          <p>
+            <span>GST</span>
+            <span class="gst">$</span>
+          </p>
+          <hr>
+          <p>
+            <span>Total</span>
+            <span class="final">$</span>
+          </p>
+          <div>
+            <a href="#checkout">Proceed to Checkout</a>
+            <a href="#aisles"><i class="fas fa-arrow-circle-left" style="padding-right: 5px;"></i>Continue Shopping</a>
+          </div>
+        </div>
+        <p id="emptyText">Cart empty!</p>
+      </div>
+    </div>
+
+</div>
+
+  </body>
+  <script type="text/javascript" src="p4javascript.js">	</script>
+</html>

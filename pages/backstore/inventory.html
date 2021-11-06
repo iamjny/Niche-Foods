@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="../../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../../css/backstore.css">
+
+    <title>Backstore Inventory</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1 class="company_name">
+        <i class="fa fa-spoon" aria-hidden="true"></i> Niche Foods
+      </h1>
+      <div>
+        <a href="../../index1.html">Home</a>
+				<a href="account_info.html">Account Info</a>
+				<a href="inventory.html">Inventory</a>
+				<a href="wholesale_orders.html">Wholesale Orders</a>
+				<a href="orders_list.html">Orders List</a>
+				<a href="product_list.html">Product List</a>
+				<a href="user_list.html">User List</a>
+			</div>
+    </div>
+
+    <div class="backstore_content">
+      <h1 class="backstore_title">
+        Backstore Inventory
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th style="width: 20%">Product Name</th>
+            <th style="width: 5%">Aisle#</th>
+            <th>Quantity</th>
+            <th style="width:15%">Unit Price</th>
+            <th style="width:30%">Description</th>
+            <th style="width:20%">Image</th>
+            <th style="width:20%">Place Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X00000</td>
+            <td>
+              <input type="textarea" name="product_name" rows="10" cols="20" placeholder="Product name as displayed">
+            </td>
+            <td>0</td>
+            <td>00</td>
+            <td>
+              <input type="number" name="unit+_price" min="0" placeholder="0">
+            </td>
+            <td>
+              <input
+                type="textarea"
+                name="description"
+                rows="10" cols="20"
+                placeholder="Default description of item in stock"
+                style="width:90%"
+              >
+            </td>
+            <td>
+              <button id="btn">Upload</td>
+            <td>
+              <input type="number" min="0" placeholder="0">
+            </td>
+          </tr>
+          <tr>
+            <td>X00000</td>
+            <td>
+              <input type="textarea" name="product_name" rows="10" cols="20" placeholder="Product name as displayed">
+            </td>
+            <td>0</td>
+            <td>00</td>
+            <td>
+              <input type="number" name="unit+_price" min="0" placeholder="0">
+            </td>
+            <td>
+              <input
+                type="textarea"
+                name="description"
+                rows="10" cols="20"
+                placeholder="Default description of item in stock"
+                style="width:90%"
+              >
+            </td>
+            <td>
+              <button id="btn">Upload</td>
+            <td>
+              <input type="number" min="0" placeholder="0">
+            </td>
+          </tr>
+          <tr>
+            <td>X00000</td>
+            <td>
+              <input type="textarea" name="product_name" rows="10" cols="20" placeholder="Product name as displayed">
+            </td>
+            <td>0</td>
+            <td>00</td>
+            <td>
+              <input type="number" name="unit+_price" min="0" placeholder="0">
+            </td>
+            <td>
+              <input
+                type="textarea"
+                name="description"
+                rows="10" cols="20"
+                placeholder="Default description of item in stock"
+                style="width:90%"
+              >
+            </td>
+            <td>
+              <button id="btn">Upload</td>
+            <td>
+              <input type="number" min="0" placeholder="0">
+            </td>
+          </tr>
+          <tr>
+            <td>X00000</td>
+            <td>
+              <input type="textarea" name="product_name" rows="10" cols="20" placeholder="Product name as displayed">
+            </td>
+            <td>0</td>
+            <td>00</td>
+            <td>
+              <input type="number" name="unit+_price" min="0" placeholder="0">
+            </td>
+            <td>
+              <input
+                type="textarea"
+                name="description"
+                rows="10" cols="20"
+                placeholder="Default description of item in stock"
+                style="width:90%"
+              >
+            </td>
+            <td>
+              <button id="btn">Upload</td>
+            <td>
+              <input type="number" min="0" placeholder="0">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="edit_buttons">
+        <button class="save">Save</button>
+        <button class="reset">Reset</button>
+      </div>
+    </div>
+  </body>
+</html>

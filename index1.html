@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Navigation Main</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-family: "Open Sans";
+        text-decoration: none;
+      }
+
+     
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        background-color: #b1c3b2;
+        align-items: center;
+      
+      }
+
+      #navbar a {
+        color: black;
+      }
+
+      #topnav_desktop,
+      #topnav_mobile {
+        padding-left: 20px;
+      }
+
+      #topnav_mobile {
+        display: none;
+      }
+
+      #topnav_desktop a {
+        padding-right: 10px;
+        flex-direction: row;
+      }
+
+      #user_exp {
+        text-align: end;
+        width: 20%;
+      }
+
+      #user_exp a {
+        margin-left: 15px;
+      }
+
+      #user_exp a:last-child {
+        padding-right: 20px;
+      }
+
+      #logo {
+        padding-top: 15px;
+        font-size: 2em;
+        padding-bottom: 20px;
+      }
+
+      #logo a {
+        font-weight: 600;
+      }
+
+      #logo .fa {
+        padding-right: 5px;
+      }
+
+      #menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      #menu.show {
+        display: flex;
+        flex-direction: column;
+        background-color: #8d9b8e;
+        width: 100%;
+      }
+
+      #menu.show a {
+        color: #ffffff;
+        padding: 10px 10px 10px 10px;
+        text-align: center;
+      }
+
+      #menu.show a:hover {
+        background-color: #6d796e;
+      }
+
+      #menu_container {
+        position: relative;
+      }
+
+      #emptyText {
+        visibility: hidden;
+        text-align: center;
+        margin-right: 400px;
+        margin-top: -200px;
+      }
+
+      #home_banner
+      {
+        background-image: url('img/homepage1.jpg');
+        background-size: 100%;
+        height: 400px;
+        background-repeat: no-repeat;
+        opacity: 0.9;
+      }
+
+      @media screen and (max-width: 700px) {
+        #topnav_desktop {
+          display: none;
+        }
+
+        #topnav_mobile {
+          display: block;
+        }
+        .remove_fromcart {
+          display: inline;
+        }
+        .cart_product {
+          height: 150px;
+        }
+        .cart_product > img {
+          height: 120px;
+          width: 150px;
+          align-items: center;
+        }
+        .item_name,
+        .item_price {
+          margin-bottom: 10px;
+        }
+        .items {
+          width: auto;
+        }
+        #user_exp a:last-child {
+          padding-right: 20px;
+        }
+
+        #home_banner {
+          background-size: 100%;
+          height: 200px;
+        }
+
+        .call_to_actions
+        {
+          height: 70px;
+        }
+
+        .grid{
+          grid-template-columns: none;
+        }
+        }
+        
+      }
+      @media screen and (max-width: 950px) {
+        .cart {
+          flex-direction: column;
+        }
+        .cart_payment {
+          margin-left: 0;
+          width: auto;
+        }
+        .items {
+          width: auto;
+        }
+
+        #nav_select a {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .content .banner > img {
+          height: 300px;
+        }
+      }
+      @media screen and (max-width: 1220px) {
+        .shopping_cart {
+          max-width: 95%;
+        }
+      }
+
+      .item_name {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* Burger Animation at OPEN */
+
+      .icon.open i {
+        color: white;
+        transform: scale(1.3);
+      }
+
+      #intro
+      {
+         text-align: center; 
+        padding-top: 40px;
+      }
+
+      /* Flipcards from Leora */
+
+      /* AISLES SECTION */
+    /*Flex grid with 4 columns .. edit the number to change grid columns*/
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+                            justify-items: center;
+        align-items: center;
+        grid-gap: 30px;
+        margin-bottom: 40px;
+        }
+
+    .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    }
+
+    .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+    background-color: #bbb;
+    color: black;
+    }
+
+    .flip-card-back {
+    background-color: #c5d9c6;
+    color: white;
+    transform: rotateY(180deg);
+    }
+
+    .flip-card-back h4
+      {
+          color: black;
+          font-weight: 600;
+      }
+
+      .flip-card-back p
+      {
+          color: black;
+          padding: 15px;
+          font-size: smaller;
+      }
+
+      ul li
+      {
+          color: black;
+          font-size: smaller;
+          text-decoration: none;
+          list-style: none;
+          padding: 5px;
+          text-align: left;
+      }
+
+      ul
+      {
+        margin-left: 10px;
+        margin-bottom: 10px;
+      }
+
+      #search_field
+      {
+          display: flex;
+          justify-content: center;
+          padding: 20px 0px;
+          background-color: #c5d9c6;
+          width: 100%;
+      }
+
+      #search_field input
+      {
+          padding: 10px;
+         
+      }
+
+      #search_field button
+      {
+          margin-right: 10px;
+          width: 40px;
+          border-style: hidden;
+          cursor: pointer;
+      }
+
+      #search_field button:hover
+      {
+        background-color: darkgrey;
+      }
+
+      .announce_section
+      {
+          text-align: center;
+          padding: 40px 0px;
+      }
+
+      .announce_section a
+      {
+          color: black;
+      }
+
+      .grid_img a
+      {
+        color: black;
+        text-align: center;
+      }
+
+      /* PROMOS */
+
+        .call_to_actions {
+        display: flex;
+        flex-direction: row;
+        }
+
+        .call_to_actions div {
+        color: #0a523b;
+        }
+
+        .call_to_actions .image {
+        width: 50%;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        }
+
+        .call_to_actions .promos {
+        background-image: url('./img/promos.jpeg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+
+        }
+
+        .call_to_actions .recipes {
+        background-image: url('./img/recipes.jpeg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        }
+
+        .call_to_actions div .content {
+        background: white;
+        height: auto;
+        padding: 30px;
+        border-radius: 5px;
+        border: 1px solid #0d674a;
+        display: flex;
+        flex-direction: column;
+        }
+
+        .call_to_actions div .content h3 {
+        margin-bottom: 15px;
+        }
+
+        .call_to_actions div .content button {
+        padding: 10px;
+        border: 2px solid #0d674a;
+        background: #0d674a;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+        .promos {
+        background-image: url('./img/promos.jpeg');
+        /* border: 4px solid #0d674a; */
+        /* border-right: 0; */
+        }
+
+        .recipes {
+        background-image: url('./img/recipes.jpeg');
+        /* border: 4px solid #0d674a; */
+        }
+
+        footer {
+        text-align: center;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        padding: 30px;
+        background-color: #eee;
+        color: #0a523b;
+        }
+
+        /* Aisles CSS GRID */
+
+        .grid_img {
+          width: 100%;
+          padding: 20px 20px 0px 20px;
+          justify-content: center;
+        }
+
+        .grid_img img {
+          box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        }
+
+        .grid_img .row {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 35px;
+        }
+
+        .grid_img .col {
+          width: 30%;
+        }
+
+        .grid_img .col img {
+          width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+          .grid_img .row {
+            display: block;
+          }
+          .grid_img .col {
+            width: 100%;
+          }
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div id="topnav_desktop">
+        <a href="#aisles">Aisles</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+      </div>
+      <div id="topnav_mobile">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"
+          ><i class="fa fa-bars"></i
+        ></a>
+      </div>
+      <div id="logo">
+        <a href="#"
+          ><i class="fa fa-spoon" aria-hidden="true"></i>Niche Foods</a
+        >
+      </div>
+      <div id="user_exp">
+        <a href="#">
+          <i class="fas fa-shopping-basket"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div id="menu_container">
+      <div id="menu">
+        <a href="#">Aisles</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    
+
+    <!--Website Content Starts Here-->
+   
+        <div id="home_banner"></div>
+
+        <div id="search_field">
+          <button><i class="fa fa-search" aria-hidden="true" ></i></button>
+          <input type="text" placeholder="What are you looking for today?" style="width: 70%;">
+      </div>
+
+        <div id="intro">
+          <h3>Your Local Niche Market</h2>
+          <br>
+          <p style="font-size: smaller; color:#0a523b; font-weight: 600;">
+              Introducing the Montreal crowd to new foods since 2001. <br><br> Very niche, very fresh, all for your good health.
+          </p>
+          <img src="img/organicicon.png" alt="organic" style="width: 70px; height: 70px; margin-top: 20px;">
+      </div>
+  
+
+    <div class="announce_section">
+        <h2>For Your Reference</h2>
+    </div>
+    <div>
+        <section id="interactive">
+            <div class="container">
+              <div class="grid">
+                              
+                <!-- Card #1 -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="img/smoothie.jpg" alt="smoothie" style="width:300px; height:300px;" />
+                    </div>
+                    <div class="flip-card-back">
+                        <br>
+                      <h4>Green Inferno Smoothie</h4>
+                      <p>
+                        <br>
+                        This recipe is an instant energy booster 
+                        infused with vitamin and hydration. 
+                        <br>
+                        <br>
+                        Blend 2 peeled kiwis, 1 banana, 1 cup of baby spinach, 1 celery, 1/4 ginger root 1/2 cup of water, juice or plant-based milk to your taste. Add 10 ice cubes for an extra refreshing drink.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Card #2 -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="img/tomato.jpg" alt="tomatoes" style="width:300px;height:300px;" />
+                    </div>
+                    <div class="flip-card-back">
+                        <br>
+                        <h4>Which one to pick?</h4>
+                        <p>
+                          Here are some popular totamo families and best ways to use them! 
+                          <ul>
+                            <li>Sauces: Roma, heirloom, tomatoes on the vine</li>
+                            <li>Salads: grape, cherry</li>
+                            <li>Skewers: cherry</li>
+                            <li>Sandwiches: beefsteak, tomatoes on the vine</li>
+                            <li>Fried: green tomatoes</li>
+                            <li>Snacks: grape, cherry, heirloom</li>
+                          </ul>
+                        </p>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Card #3 -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="img/poke.jpg" alt="pokes" style="width:300px;height:300px;" />
+                    </div>
+                    <div class="flip-card-back">
+                        <br>
+                            <h4>Quick recipes for lazy days</h4>
+                            <p>
+                              <br>
+                              100% vegan and easy-to-make tofu bowl <br>
+                              <br>
+                              Bake super firm pressed tofu in Tahini sauce for about 20 minutes. <br>
+                              We recommend using kale and quinoa as base, but you are free to use whatever you have at home. <br>
+                              Add edamame, red cabbage, carrots, broccoli, cucumber, any kind of squash and mix it together.
+                              Tofu can be replaced with seitan for wheat / gluten options or even mushrooms.
+                            </p>
+                    </div>
+                  </div>
+                </div>
+                    
+                </div>
+                </div>
+                
+            </section>
+        </div>
+
+      <div class="announce_section" style="background-color: #0a523b; color:#ffffff; padding: 15px;">
+          <a href="#" style="color: white;"><h2>Product Aisles</h2></a>
+          <h5>Click to visit the aisle of your choice.</h5>
+      </div>
+
+      <!--Aisles start here-->
+
+      <div class="grid_img">
+        <div class="row">
+          <div class="col">
+            <a href="#"><h2>Animal Products</h2></a>
+            <br>
+            <a href="./pages/aisles/animal_products/animal_products.html">
+              <img src="./img/aisles/animal_products.jpg" alt="Animal Products">
+            </a>
+          </div>
+          <div class="col">
+            <a href="#"><h2>Bread & Bakery</h2></a>
+            <br>
+            <a href="./pages/aisles/bakery/bakery.html">
+              <img src="./img/aisles/bakery.jpg" alt="Bakery">
+            </a>
+          </div>
+          <div class="col">
+            <a href="#"><h2>Beverages</h2></a>
+            <br>
+            <a href="./pages/aisles/beverages/beverages.html">
+              <img src="./img/aisles/beverages.jpg" alt="Beverages">
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="#"><h2>Fruits & Greens</h2></a>
+            <br>
+            <a href="./pages/aisles/fruits_veg/fruits_veg.html">
+              <img src="./img/aisles/fruits_veg.jpg" alt="Fruits & Vegetables">
+            </a>
+          </div>
+          <div class="col">
+            <a href="#"><h2>Grains & Seeds</h2></a>
+            <br>
+            <a href="./pages/aisles/grains_seeds/grains_seeds.html">
+              <img src="./img/aisles/grains_seeds.jpg" alt="Grains & Seeds">
+            </a>
+          </div>
+          <div class="col">
+           
+            <a href="#"><h2>Ready-to-Eat</h2></a>
+            <br>
+            <a href="./pages/aisles/ready_to_eat/ready_to_eat.html">
+              <img src="./img/aisles/ready_to_eat.jpg" alt="Ready To Eat">
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="announce_section">
+        <h2>Stay tunes for the upcoming promotions</h2>
+    </div>
+
+    <div class="call_to_actions">
+        <div class="image promos">
+          <!-- <div class="content">
+            <h3>Check out our weekly promotions for yummmy, organic deals!</h3>
+            <button>TAKE ME THERE</button>
+          </div> -->
+        </div>
+        <div class="image recipes">
+          <!-- <div class="content">
+            <h3>Recipe of the week: quick and easy Avocado Dip/Salad!</h3>
+            <button>LEARN MORE</button>
+          </div> -->
+        </div>
+      </div>
+  </body>
+
+  <!-- Footer -->
+    <footer>
+        <div class="text">
+        <h3>Niche Foods</h3>
+        <p>Premium niche foods cultivated from local sources at affordable prices</p>
+        <p>2475 Rue des Regrattiers, Montréal, QC h2Z 4P2</p>
+        <p>Mon-Fri  8:30 - 20:30</p>
+        </div>
+        <p class="text-center">&nbsp &copy; 2001-2021 Niche Foods</p>
+    </footer>
+
+  <script type="text/javascript">
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function myFunction() {
+      var menu = document.getElementById("menu");
+      console.log("hi");
+      if (menu.className === "show") {
+        menu.classList.remove("show");
+      } else {
+        menu.className = "show";
+      }
+    }
+  </script>
+
+  <script>
+    const burger = document.querySelector(".icon");
+    let menuOpen = false;
+    burger.addEventListener("click", () => {
+      if (!menuOpen) {
+        burger.classList.add("open");
+        menuOpen = true;
+      } else {
+        burger.classList.remove("open");
+        menuOpen = false;
+      }
+    });
+  </script>
+</html>
