@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../../../../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../../../../css/product.css">
     <title>Product Page</title>
-	
+
 	<script>
 		function show() {
 			var descriptionBtn = document.getElementById('descriptionButton');
@@ -34,7 +34,7 @@
             </h1>
             <div>
               <a href="../../../../index1.html">Home</a>
-          
+           
               <a href="../../../signup.html">Sign Up</a>
               <a href="../../../login.html">
                 <i class="fa fa-user-circle" aria-hidden="true"></i> Login
@@ -50,26 +50,26 @@
           </div>
           <div class="title">
             <h1>
-             Rye
+             Buckwheat
             </h1>
           </div>
 		  <div class="col-2">
-		  <img style="width:400px height=400px" src='../img/rye.jpg' alt="rye image">
+		  <img style="width:400px height=400px" src='../img/buckwheat.jpg' alt="buckwheat image">
 		  </div>
 		  <br>
 		  <div class = "product_content">
 
 		   <p> 100g <br> <br>
-		   Price: 0.60$</p>
+		   Price: 1.00$</p>
 		   <div class="counter">
 					<button id="subQ" style="width:15px;"type= "submit">-</button>
 					<button id="Quantity" style="width:25px;" type = "submit"> 1 </button>
 					<button id="addQ" style="width:15px;" type = "submit"> + </button>
 			</div> <br>
 			
-		    <button class = "descriptionButton" onclick = "show()" id = "descriptionButton" type = "button">More Information </button> <br>
+		   <button class = "descriptionButton" onclick = "show()" id = "descriptionButton" type = "button">More Information </button> <br>
 		   <div style = "display: none;" id = "more"> 
-		   <p>Imported from Turkey</p>
+		   <p>Imported from the United States </p>
 		   </div>
 		   
 		   <button class="cartbtn"> Add to cart</button><br>
@@ -93,27 +93,27 @@
 </body>
 
 <script>
-	var addQ = document.getElementById("addQ");
-	addQ.addEventListener("click",addQuantity);
-	var subQ = document.getElementById("subQ");
-	subQ.addEventListener("click",subQuantity);
-	console.log("test");
-	function addQuantity(){
-		var qt = document.getElementById("Quantity").innerHTML;
-		var SystemQ = parseInt(qt)+1;
-		localStorage.setItem("testKey",SystemQ);
-		document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
-	}
-	function subQuantity(){
-		var qt = document.getElementById("Quantity").innerHTML;
-		if(qt>0){
-			var SystemQ = parseInt(qt)-1;
+var addQ = document.getElementById("addQ");
+		addQ.addEventListener("click",addQuantity);
+		var subQ = document.getElementById("subQ");
+		subQ.addEventListener("click",subQuantity);
+		console.log("test");
+		function addQuantity(){
+			var qt = document.getElementById("Quantity").innerHTML;
+			var SystemQ = parseInt(qt)+1;
 			localStorage.setItem("testKey",SystemQ);
 			document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
-			updatePrice();
 		}
-	}
-	console.log(localStorage.getItem("testKey"));
+		function subQuantity(){
+			var qt = document.getElementById("Quantity").innerHTML;
+			if(qt>0){
+				var SystemQ = parseInt(qt)-1;
+				localStorage.setItem("testKey",SystemQ);
+				document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
+				updatePrice();
+			}
+		}
+		console.log(localStorage.getItem("testKey"));
 </script>
 
 <!-- done by valentyna-->
