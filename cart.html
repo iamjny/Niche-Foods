@@ -45,39 +45,47 @@
 
       #topnav_desktop,
       #topnav_mobile {
-        padding-left: 20px;
+        margin-left: 20px;
       }
 
       #topnav_mobile {
         display: none;
+        margin-right: 60px;
       }
 
-      #topnav_desktop a {
-        padding-right: 10px;
+      #topnav_desktop a:not(:last-child) {
+        padding-right: 20px;
         flex-direction: row;
       }
 
       #user_exp {
         text-align: end;
-        width: 20%;
+        margin-right: 20px;
       }
 
       #user_exp a {
-        margin-left: 15px;
+        padding-left: 20px;
       }
 
+      #user_exp a:not(:last-child) {
+        padding-left: 60px;
+      }
+/* 
       #user_exp a:last-child {
         padding-right: 20px;
-      }
+      } */
 
       #logo {
         padding-top: 15px;
         font-size: 2em;
         padding-bottom: 20px;
+        position: relative;
+        
       }
 
       #logo a {
         font-weight: 600;
+       
       }
 
       #logo .fa {
@@ -92,7 +100,7 @@
       }
 
       .content .banner {
-        background-image: url("img/cart_bann.jpg");
+        background-image: url("https://users.encs.concordia.ca/~ca_henr/img/cart_bann.jpg");
         background-repeat: no-repeat;
         background-size: 100%;
         height: 300px;
@@ -245,9 +253,14 @@
       #emptyText{
         visibility: hidden;
         text-align: center;
-        margin-right: 400px;
-        margin-top: -200px;
+	margin-top: 20px;
+      }
 
+      /* Burger Animation at OPEN */
+
+      .icon.open i {
+        color: white;
+        transform: scale(1.3);
       }
 
       @media screen and (max-width: 700px) {
@@ -275,9 +288,6 @@
         }
         .items {
           width: auto;
-        }
-        #user_exp a:last-child {
-          padding-right: 20px;
         }
 
         .content .banner {
@@ -324,31 +334,47 @@
         color: white;
         transform: scale(1.30);
       }
+
+      .main
+      {
+        margin-bottom: 80px;
+      }
       
     </style>
   </head>
   <body>
     
     <div id="navbar">
-        <div id="nav_select">
-          <a href="index1.html">Aisles</a>
-          <a href="#">Blog</a>
-          <a href="#">Contact</a>
-        </div>
-        <div id="logo">
-          <a href="#"
-            ><i class="fa fa-spoon" aria-hidden="true"></i>Niche Foods</a
-          >
-        </div>
-        <div id="user_exp">
-          <a href="#">
-            <i class="fas fa-shopping-basket"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-user-circle" aria-hidden="true"></i>
-          </a>
-        </div>
+      <div id="topnav_desktop">
+        <a href="https://users.encs.concordia.ca/~ca_henr/nichefoods/home.html#aisles_main">Aisles</a>
+        <a href="https://users.encs.concordia.ca/~ca_henr/nichefoods/home.html#footer">Contact</a>
       </div>
+      <div id="topnav_mobile">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"
+          ><i class="fa fa-bars"></i
+        ></a>
+      </div>
+      <div id="logo">
+        <a href="https://users.encs.concordia.ca/~ca_henr/nichefoods/home.html"
+          ><i class="fa fa-spoon" aria-hidden="true"></i>Niche Foods</a
+        >
+      </div>
+      <div id="user_exp">
+        <a href="#">
+          <i class="fas fa-shopping-basket"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div id="menu_container">
+      <div id="menu">
+        <a href="https://users.encs.concordia.ca/~ca_henr/nichefoods/home.html#aisles_main">Aisles</a>
+        <a href="#footer">Contact</a>
+      </div>
+    </div>
+
 
     <div class="content">
         <div class="banner">
@@ -362,11 +388,13 @@
      
     <div class="main">
 
+	<p id="emptyText" style="font-weight: 600; font-size: larger;">Cart currently empty!</p>
+
     <div id="shopping_cart">
       <div class="cart">
         <div class="items">
           <div class="cart_product" price = 3.99 name="kombucha">
-            <img src="img/kombucha.jpg" alt="synergy kombucha" />
+            <img src="https://users.encs.concordia.ca/~ca_henr/nichefoods/pages/aisles/beverages/img/kombucha.jpg" alt="synergy kombucha" />
             <div class="cart_item_information">
               <div class="item_name">
                   <h3>SYNERGY Kombucha</h3>
@@ -389,7 +417,7 @@
           </div>
 
           <div class="cart_product" price = 2.99 name="croissant">
-            <img src="img/croissants_cart.jpg" alt="croissant" />
+            <img src="https://users.encs.concordia.ca/~ca_henr/nichefoods/pages/aisles/bakery/img/croissants.jpg" alt="croissant" />
             <div class="cart_item_information">
                 <div class="item_name">
                     <h3>Butter Croissant</h3>
@@ -412,7 +440,7 @@
           </div>
 
           <div class="cart_product" price = 5.99 name="strawberry">
-            <img src="img/strawberries_cart.jpg" alt="strawberries" />
+            <img src="https://users.encs.concordia.ca/~ca_henr/nichefoods/pages/aisles/fruits_veg/img/strawberries_cart.jpg" alt="strawberries" />
             <div class="cart_item_information">
                 <div class="item_name">
                     <h3>Strawberries</h3>
@@ -434,7 +462,6 @@
             </div>
           </div>
         </div>
-
         <div class="cart_payment">
           <p>
             <span>Number of Items:</span>
@@ -459,15 +486,44 @@
           </p>
           <div>
             <a href="#checkout">Proceed to Checkout</a>
-            <a href="#aisles"><i class="fas fa-arrow-circle-left" style="padding-right: 5px;"></i>Continue Shopping</a>
+            <a href="https://users.encs.concordia.ca/~ca_henr/nichefoods/home.html#aisles_main"><i class="fas fa-arrow-circle-left" style="padding-right: 5px;"></i>Continue Shopping</a>
           </div>
         </div>
-        <p id="emptyText">Cart empty!</p>
+        
       </div>
     </div>
 
 </div>
 
   </body>
-  <script type="text/javascript" src="p4javascript.js">	</script>
+  <script type="text/javascript" src="https://users.encs.concordia.ca/~ca_henr/js/p4javascript.js">	</script>
+  <script type="text/javascript" src="https://users.encs.concordia.ca/~ca_henr/js/p3dynamic.js">	</script>
+
+  <script type="text/javascript">
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function myFunction() {
+      var menu = document.getElementById("menu");
+      console.log("hi");
+      if (menu.className === "show") {
+        menu.classList.remove("show");
+      } else {
+        menu.className = "show";
+      }
+    }
+  </script>
+
+<script>
+  const burger = document.querySelector(".icon");
+  let menuOpen = false;
+  burger.addEventListener("click", () => {
+    if (!menuOpen) {
+      burger.classList.add("open");
+      menuOpen = true;
+    } else {
+      burger.classList.remove("open");
+      menuOpen = false;
+    }
+  });
+</script>
+
 </html>
