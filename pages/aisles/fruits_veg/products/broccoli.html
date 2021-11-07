@@ -7,14 +7,31 @@
 	<link rel="stylesheet" type="text/css" href="../../../../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../../../../css/product.css">
     <title>Product Page</title>
+    <script>
+      function show() {
+        var descriptionBtn = document.getElementById('descriptionButton');
+        var moreText = document.getElementById('more');
+        var displaying = moreText.style.display;
+        var buttonText = document.getElementById("descriptionButton");
+          if (moreText.style.display == 'none') {
+            moreText.style.display = 'inline';
+            buttonText.innerHTML = "Less Information";
+          }
+          else {
+              moreText.style.display = 'none';
+              buttonText.innerHTML = 'More Inforamtion';
+            }		
+      }
+    </script>
 
 </head>
 
 <body>
 <div class="main">
         <div class="navbar">
-            <h1 class="company_name">
-                <i class="fa fa-spoon" aria-hidden="true"></i> Niche Foods
+          <a href="../../../../index1.html"> <h1 class="company_name">
+            <i class="fa fa-spoon" aria-hidden="true"></i> Niche Foods
+          </h1></a> 
             </h1>
             <div>
               <a href="../../../../index1.html">Home</a>
@@ -50,8 +67,13 @@
           <button id = "Quantity" style="width:25px;" type = "submit"> 1 </button>
           <button id ="addQ" style="width:15px;" type = "submit"> + </button>
       </div> <br>
-      <button id = "descriptionButton" id = "descriptionButton" type = "button">More Information </button> <br>
-      <p id = "extension">Fresh and organic broccoli for you and your family</p>
+      
+      <button class = "descriptionButton" onclick = "show()" id = "descriptionButton" type = "button">More Information </button> <br>
+      <div style = "display: none;" id = "more"> 
+      <p>Fresh and organic broccoli for you and your family</p>
+      </div>
+
+
       <button class="cartbtn"> Add to cart</button><br>
      </div>
      </div>
