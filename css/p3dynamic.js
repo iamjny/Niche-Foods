@@ -6,13 +6,12 @@ var extendD = document.getElementById("descriptionButton");
 extendD.addEventListener("click",extend);
 extendD.addEventListener("dblclick",distend);
 console.log("test");
-
-// STORE DATA LOCALLY TO SAVE WITH REFRESH ACTION
-
-document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
-
-
+var q = document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
+if(isNaN(q)){
+    document.getElementById("Quantity").innerHTML = 1;
+}
 const basePrice=parseFloat(document.getElementById("price").innerHTML);
+updatePrice();
 function updatePrice(){
     var price=document.getElementById("price").innerHTML;
     var rawprice = parseFloat(price);
