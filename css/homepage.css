@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Open Sans";
+  text-decoration: none;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #b1c3b2;
+  align-items: center;
+}
+
+#navbar a {
+  color: black;
+}
+
+#topnav_desktop,
+#topnav_mobile {
+  margin-left: 20px;
+}
+
+#topnav_mobile {
+  display: none;
+  margin-right: 60px;
+}
+
+#topnav_desktop a:not(:last-child) {
+  padding-right: 20px;
+  flex-direction: row;
+}
+
+#user_exp {
+  text-align: end;
+  margin-right: 20px;
+}
+
+#user_exp a {
+  padding-left: 20px;
+}
+
+#user_exp a:not(:last-child) {
+  padding-left: 60px;
+}
+
+#logo {
+  padding-top: 15px;
+  font-size: 2em;
+  padding-bottom: 20px;
+}
+
+#logo a {
+  font-weight: 600;
+}
+
+#logo .fa {
+  padding-right: 5px;
+}
+
+#menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#menu.show {
+  display: flex;
+  flex-direction: column;
+  background-color: #8d9b8e;
+  width: 100%;
+}
+
+#menu.show a {
+  color: #ffffff;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+}
+
+#menu.show a:hover {
+  background-color: #6d796e;
+}
+
+#menu_container {
+  position: relative;
+}
+
+#emptyText {
+  visibility: hidden;
+  text-align: center;
+  margin-right: 400px;
+  margin-top: -200px;
+}
+
+#home_banner {
+  background-image: url("https://users.encs.concordia.ca/~ca_henr/img/homepage1.jpg");
+  background-size: 100%;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 700px) {
+  #topnav_desktop {
+    display: none;
+  }
+
+  #topnav_mobile {
+    display: block;
+  }
+  .remove_fromcart {
+    display: inline;
+  }
+  .cart_product {
+    height: 150px;
+  }
+  .cart_product > img {
+    height: 120px;
+    width: 150px;
+    align-items: center;
+  }
+  .item_name,
+  .item_price {
+    margin-bottom: 10px;
+  }
+  .items {
+    width: auto;
+  }
+
+  #home_banner {
+    background-size: 100%;
+    height: 200px;
+  }
+
+  .call_to_actions {
+    height: 70px;
+  }
+
+  .grid {
+    grid-template-columns: none;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .cart {
+    flex-direction: column;
+  }
+  .cart_payment {
+    margin-left: 0;
+    width: auto;
+  }
+  .items {
+    width: auto;
+  }
+
+  #nav_select a {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content .banner > img {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .shopping_cart {
+    max-width: 95%;
+  }
+}
+
+.item_name {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Burger Animation at OPEN */
+
+.icon.open i {
+  color: white;
+  transform: scale(1.3);
+}
+
+#intro {
+  text-align: center;
+  padding-top: 40px;
+}
+
+/* Flipcards from Leora */
+
+/* AISLES SECTION */
+/*Flex grid with 4 columns .. edit the number to change grid columns*/
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  grid-gap: 30px;
+  margin-bottom: 40px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #c5d9c6;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back h4 {
+  color: black;
+  font-weight: 600;
+}
+
+.flip-card-back p {
+  color: black;
+  padding: 15px;
+  font-size: smaller;
+}
+
+ul li {
+  color: black;
+  font-size: smaller;
+  text-decoration: none;
+  list-style: none;
+  padding: 5px;
+  text-align: left;
+}
+
+ul {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#search_field {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+  background-color: #c5d9c6;
+  width: 100%;
+}
+
+#search_field input {
+  padding: 10px;
+}
+
+#search_field button {
+  margin-right: 10px;
+  width: 40px;
+  border-style: hidden;
+  cursor: pointer;
+}
+
+#search_field button:hover {
+  background-color: darkgrey;
+}
+
+.announce_section {
+  text-align: center;
+  padding: 40px 0px;
+}
+
+.announce_section a {
+  color: black;
+}
+
+.grid_img a {
+  color: black;
+  text-align: center;
+}
+
+/* PROMOS */
+
+.call_to_actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.call_to_actions div {
+  color: #0a523b;
+}
+
+.call_to_actions .image {
+  width: 50%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.call_to_actions .promos {
+  background-image: url("https://users.encs.concordia.ca/~ca_henr/img/promos.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.call_to_actions .recipes {
+  background-image: url("https://users.encs.concordia.ca/~ca_henr/img/recipes.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.call_to_actions div .content {
+  background: white;
+  height: auto;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #0d674a;
+  display: flex;
+  flex-direction: column;
+}
+
+.call_to_actions div .content h3 {
+  margin-bottom: 15px;
+}
+
+.call_to_actions div .content button {
+  padding: 10px;
+  border: 2px solid #0d674a;
+  background: #0d674a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.promos {
+  background-image: url("./img/promos.jpeg");
+  /* border: 4px solid #0d674a; */
+  /* border-right: 0; */
+}
+
+.recipes {
+  background-image: url("./img/recipes.jpeg");
+  /* border: 4px solid #0d674a; */
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 30px;
+  background-color: #eee;
+  color: #0a523b;
+}
+
+/* Aisles CSS GRID */
+
+.grid_img {
+  width: 100%;
+  padding: 20px 20px 0px 20px;
+  justify-content: center;
+}
+
+.grid_img img {
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.grid_img .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.grid_img .col {
+  width: 30%;
+}
+
+.grid_img .col img {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .grid_img .row {
+    display: block;
+  }
+  .grid_img .col {
+    width: 100%;
+  }
+}
