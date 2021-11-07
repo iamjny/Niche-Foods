@@ -7,8 +7,11 @@ extendD.addEventListener("click",extend);
 extendD.addEventListener("dblclick",distend);
 console.log("test");
 var q = document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
-if(isNaN(q)){
+if(isNaN(q)||!q){
     document.getElementById("Quantity").innerHTML = 1;
+}
+else{
+    document.getElementById("Quantity").innerHTML = localStorage.getItem("testKey");
 }
 const basePrice=parseFloat(document.getElementById("price").innerHTML);
 updatePrice();
