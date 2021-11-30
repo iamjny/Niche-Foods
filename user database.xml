@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE products
+[
+   <!ELEMENT users (username,password,firstName,lastName,email)>
+   <!ELEMENT username (#PCDATA)>
+   <!ELEMENT password (#PCDATA)>
+   <!ELEMENT firstName (#PCDATA)>
+   <!ELEMENT lastName (#PCDATA)>
+   <!ELEMENT email (#PCDATA)>
+]>
+
+<users>
+	<adminrole>
+		<username>admin</username>
+		<password>admin</password>
+		<firstName>admin</firstName>
+		<lastName> admin </lastName>
+		<email> admin@gmail.com </email>
+   </adminrole>
+</users>
