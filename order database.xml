@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE orders
+[
+   <!ELEMENT proucts (orderNumber,productName,productNum,quantity)>
+   <!ELEMENT orderNumber (#PCDATA)>
+   <!ELEMENT productName (#PCDATA)>
+   <!ELEMENT productNum (#PCDATA)>
+   <!ELEMENT quantity (#PCDATA)>
+]>
+
+<orders>
+	<o>
+	   <orderNumber>1</orderNumber>
+	   <productName>Strawberries</productName>
+	   <productNum>024</productNum>
+	   <quantity>3</quantity>
+   </o>
+</orders
+
+order number
+product name and number 
+quantity 
+price 
