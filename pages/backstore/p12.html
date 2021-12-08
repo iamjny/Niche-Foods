@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="https://users.encs.concordia.ca/~ca_henr/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="https://users.encs.concordia.ca/~ca_henr/css/backstore.css"/>
+
+
+    <title>Backstore Order Edit</title>
+
+    <style>
+
+      td input[type=number]
+      {
+        width: 40%;
+      }
+      td input
+      {
+        margin: 0 auto;
+      }
+      .employee_info
+      {
+        text-align: center;
+      }
+      @media (max-width: 780px)
+      {
+        th, .employee_info
+        {
+          font-size: small;
+        }
+        select, input[type=number]
+        {
+          font-size: x-small;
+        }
+        td input[type=number]
+      {
+        width: 90%;
+      }
+
+      }
+    </style>
+  </head>
+  <body>
+   
+    <div class="backstore_content">
+      <h1 class="backstore_title">
+        Edit Current Order
+      </h2>
+      <div class="employee_info">
+        <h2>Session Info:</h2>
+        <h4>Employee ID</h2>
+        <h4>Employee Name</h2>
+      </div>
+      <br/>
+
+      <div class="user_order">
+        <div class="table_info">
+          <table>
+            <thead>
+              <tr>
+                <th>Order Details</th>
+                <th style="width: 30%;">Quantity</th>
+                <th>Update Order</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Item</td>
+                <td><input type="number" id="quantity" name="quantity" min="0" placeholder="1"></td>
+                <td>
+                  <select name="formStatus">
+                    <option value="">Status</option>
+                    <option value="received">Received</option>
+                    <option value="processed">Processed</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="out_for_del">Out for delivery</option>
+                    <option value="delivered">Delivered</option>
+                  </select>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="edit_buttons">
+        <button class="save">Save</button>
+        <button class="reset">Reset</button>
+      </div>
+    </div>
+  </body>
+</html>
