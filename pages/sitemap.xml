@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users><user><username>admin</username><password>admin</password><firstName>admin</firstName><lastName> admin </lastName><email> admin@gmail.com </email><isadmin>true</isadmin></user><user><username>vasu</username><password>vasu</password><firstName>vasu</firstName><lastName> vasu </lastName><email> vasu@gmail.com </email><isadmin>false</isadmin></user><user><username/><password>sdd</password><firstName>asdsd</firstName><lastName>sd</lastName><email>starfreck18@gmail.com</email><isadmin>false</isadmin></user></users>
